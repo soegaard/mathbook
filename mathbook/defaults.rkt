@@ -22,19 +22,16 @@
 (define (add-defaults doc pfx styl extras version?
                       #:html [html #f]
                       #:properties [properties null])
-  (struct-copy part doc [style (make-style (style-name (part-style doc))
-                                           ((if version? add-property (lambda (x y z) x))
-                                            (add-property
-                                             ((if html add-property (lambda (x y z) x))
-                                              (append
-                                               (style-properties (part-style doc))
-                                               properties)
-                                              html-defaults?
-                                              html)
-                                             latex-defaults?
-                                             (make-latex-defaults
-                                              pfx
-                                              styl
-                                              extras))
-                                            document-version?
-                                            (make-document-version (version))))]))
+  (struct-copy 
+   part doc 
+   [style (make-style (style-name (part-style doc))
+                      ((if version? add-property (lambda (x y z) x))
+                       (add-property
+                        ((if html add-property (lambda (x y z) x))
+                         (append (style-properties (part-style doc)) properties)
+                         html-defaults?
+                         html)
+                        latex-defaults?
+                        (make-latex-defaults pfx styl extras))
+                       document-version?
+                       (make-document-version (version))))]))
