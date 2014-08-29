@@ -14,14 +14,13 @@
                 null
                 #:html (html-defaults (scribble-file "mathbook-prefix.html")
                                       (scribble-file "mathbook-style.css")
-                                      (list
-                                       (scribble-file "mathbook-fonts.css")))
+                                      (list (scribble-file "mathbook-fonts.css")))
                 #:properties (list
                               (css-style-addition
                                (scribble-file "mathbook-racket.css"))
                               (js-style-addition
                                (scribble-file "mathbook-racket.js")))
-                #t))
+                #f)) ; #f => no version info
 
 (define-on-demand mathbook-doc-style
   (part-style (post-process (part #f null #f plain null null null))))
