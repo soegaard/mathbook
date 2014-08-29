@@ -14,4 +14,4 @@
 
 
 (define-syntax-rule (module-begin id . body)
-  (#%module-begin id post-process () . body))
+  (#%module-begin id post-process () use-mathjax-cdn . body))

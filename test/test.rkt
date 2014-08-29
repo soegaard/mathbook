@@ -1,5 +1,4 @@
 #lang mathbook
-@use-mathjax-cdn
 
 @title{Mathbook}
 
