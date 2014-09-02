@@ -651,6 +651,16 @@ blockquote > blockquote.SVInsetFlow {
     white-space: nowrap;
 }
 
+/* Matbook styles */
+
+/* Insert the word "Theorem" in bold before ... */
+.theorem:before { content: "Theorem ";
+                  font-weight: bold;
+                  display: inline;
+}
+
+.theorem { display: inline; font-weight: bold;}
+
 /* phone + tablet styles */
 
 @media all and (max-width:720px){

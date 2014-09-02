@@ -9,3 +9,31 @@
 \renewcommand{\SecRef}[2]{\S#1 ``#2''}
 \renewcommand{\ChapRefUC}[2]{\SecRefUC{#1}{#2}}
 \renewcommand{\SecRefUC}[2]{\SecRef{#1}{#2}}
+
+% Definitions for mathbook
+% \newtheorem requires the amsthm package
+
+% Documentation of amsthm: "types of structures which are normally associated with each theorem style"
+% plain         Theorem, Lemma, Corollary, Proposition, Conjecture, Criterion, Algorithm
+% definition    Definition, Condition, Problem, Example
+% remark        Remark, Note, Notation, Claim, Summary, Acknowledgment, Case, Conclusion
+
+% plain  is the default style (depends on the document class)
+% typically italic body text
+\theoremstyle{plain} 
+\newtheorem{theorem}{Theorem}[section]          % theorem counter reset, when section is incremented
+\newtheorem{lemma}[theorem]{Lemma}              % use the counter in [theorem] i.e. use shared counter
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+% definition style, typically roman text
+\theoremstyle{definition}                       % 
+\newtheorem{definition}{Definition}[section]
+\newtheorem{conjecture}{Conjecture}[section]
+\newtheorem{example}{Example}[section]
+
+% remark style, typically roman text
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}                   % a star means no numbering
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}

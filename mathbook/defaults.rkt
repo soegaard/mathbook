@@ -22,6 +22,7 @@
 (define (add-defaults doc pfx styl extras version?
                       #:html [html #f]
                       #:properties [properties null])
+  (displayln doc)
   (struct-copy 
    part doc 
    [style (make-style (style-name (part-style doc))
