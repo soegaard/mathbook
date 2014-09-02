@@ -11,6 +11,11 @@
 \renewcommand{\SecRefUC}[2]{\SecRef{#1}{#2}}
 
 % Definitions for mathbook
+
+% \texttip{math}{tip} gives a tooltip in MathJax, in LaTeX we must ignore the tip
+\newcommand{\texttip}[2]{#1}
+
+
 % \newtheorem requires the amsthm package
 
 % Documentation of amsthm: "types of structures which are normally associated with each theorem style"

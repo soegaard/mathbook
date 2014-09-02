@@ -14,6 +14,7 @@ A mathbook rendered as HTML use MathJax to render the formulas.
 
 @$${\texttip{a^2+b^2=c^2}{Pythagoras where $C=90^\circ$}}
 
+@$${ x +a -x = \bcancel{x}+a-\bcancel{x} = a}
 
 @section{Reference}
 This is the reference section.
