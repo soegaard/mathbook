@@ -2,25 +2,13 @@
 (require racket/match
          scribble/core
          scribble/html-properties)
-(provide use-mathjax-cdn $ $$)
 
-(define mathjax-source
-  "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
+(provide $ $$)
 
-(define use-mathjax-cdn
-  (paragraph plain
-             (list
-              ; This loads MathJax from mathjax-source
-              (element (style #f (list (alt-tag "script")
-                                       (attributes `((type . "text/javascript")
-                                                     (src . ,mathjax-source )))))
-                       '())
-              ; This loads the given extensions. 
-              ;   "action.js" contains \texttip{math}{tip} and others.
-              ;   "cancel.js" contains \cancel{math} and others
-              (element (style #f (list (alt-tag "script")
-                                       (attributes `((type . "text/x-mathjax-config")))))
-                       "MathJax.Hub.Config({ TeX: {extensions: [\"action.js\",\"cancel.js\"] }});"))))
+;;; 
+;;; NOTE: The actual loading of MathJax from the CDN and 
+;;;       the loading of extensions is done in defaults.rkt.
+;;;
 
 (define (mymath start end . strs)
   (make-element (make-style "relax" '(exact-chars)) `(,start ,@strs ,end)))
