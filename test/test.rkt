@@ -1,7 +1,7 @@
 #lang mathbook
 
 @title{Mathbook}
-@;@author{Jens Axel Søgaard}
+@author{Jens Axel Søgaard}
 
 @section{Introduction}
 Documents in the @tt{mathbook} language can contain mathematical formulas.
