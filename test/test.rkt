@@ -4,6 +4,9 @@
 @author{Jens Axel Søgaard}
 
 @section{Introduction}
+    @katex${u_2 - v_1 = a\cdot (t_2 - x_1)}
+    @katex${z_2 - z_1 = a\cdot (z_2 - x_1)}
+    @katex${q_2 - q_1 = a\cdot (z_2 - x_1)}
 Documents in the @tt{mathbook} language can contain mathematical formulas.
 There are two types of formulas inline and display formulas.
 The scribble constructs to make formulars are called @tt{$} and @tt{$$}. 
@@ -74,25 +77,39 @@ Punktet @P ligger på linjen, så punktet @${(x_1,y_1)} passer i linjens ligning
 Punktet @Q ligger på linjen, så punktet @${(x_2,y_1)} passer også i linjens ligning.
     @$$line["x_2" "y_2"] 
 Nu udregnes væksten i @${y}: XXX
-    @$${\begin{aligned}
-              y_2 - y_1 & = (a\cdot x_2 + b)  - (a\cdot x_1 +b)  \\ 
-                        & =  a\cdot x_2 + b   -  a\cdot x_1 - b  \\ 
-                        & =  a\cdot x_2       -  a\cdot x_1      \\
-                        & =  a\cdot (x_2 - x_1 )                 \\
-        \end{aligned}}
-    @$$["aligned"]{
-              y_2 - y_1 & = (a\cdot x_2 + b)  - (a\cdot x_1 +b)  \\ 
-                        & =  a\cdot x_2 + b   -  a\cdot x_1 - b  \\ 
-                        & =  a\cdot x_2       -  a\cdot x_1      \\
-                        & =  a\cdot (x_2 - x_1 )                 \\}
+@;    @$${\begin{aligned}
+@;              y_2 - y_1 & = (a\cdot x_2 + b)  - (a\cdot x_1 +b)  \\ 
+@;                        & =  a\cdot x_2 + b   -  a\cdot x_1 - b  \\ 
+@;                        & =  a\cdot x_2       -  a\cdot x_1      \\
+@;                        & =  a\cdot (x_2 - x_1 )                 \\
+@;        \end{aligned}}
+@;    @$$["aligned"]{
+@;              y_2 - y_1 & = (a\cdot x_2 + b)  - (a\cdot x_1 +b)  \\ 
+@;                        & =  a\cdot x_2 + b   -  a\cdot x_1 - b  \\ 
+@;                        & =  a\cdot x_2       -  a\cdot x_1      \\
+@;                        & =  a\cdot (x_2 - x_1 )                 \\})
+
 I næstsidste linje står der @${a\cdot} i begge led. Faktoren @${a} er derfor en fælles faktor. 
 I sidste linje er den fælles faktor sat uden for parentes.
 
 Konklusionen er, at væksten i @${y} er det samme som @${a} gange væksten i @${x}.
     @$${y_2 - y_1 = a\cdot (x_2 - x_1)}
 
+
 For at få isolere @${a} ombyttes venstre og højre side, og derefter divideres med væksten i @${x}.
 @;    @$${\begin{align}
 @;              a\cdot (x_2 - x_1) & = y_2 - y_1 \\ \\
 @;              a                  & = \frac{y_2 - y_1}{x_2 - x_1} \\
 @;        \end{align}}
+
+@subsection{Nulregel}
+@theorem{Nulregel}
+Et produkt er nul hvis og kun hvis mindst en faktor er nul.
+@$${a\cdot b=0\ \ \Leftrightarrow\ \ a=0 \vee \ b=0}
+
+@example{Nulregel}
+@$${(x-2)  \cdot (x-1) = 0}
+@$${\begin{aligned}          
+           x-2 =0  &\ \ \vee\ \  x-1=0 \\
+           x=2     &\ \ \vee\ \  x=1 \\
+    \end{aligned}}
