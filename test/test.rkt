@@ -4,14 +4,39 @@
 @author{Jens Axel Søgaard}
 
 @section{Introduction}
-    @katex${u_2 - v_1 = a\cdot (t_2 - x_1)}
-    @katex${z_2 - z_1 = a\cdot (z_2 - x_1)}
-    @katex${q_2 - q_1 = a\cdot (z_2 - x_1)}
-Documents in the @tt{mathbook} language can contain mathematical formulas.
-There are two types of formulas inline and display formulas.
-The scribble constructs to make formulars are called @tt{$} and @tt{$$}. 
-An inline formula @${a^2+b^2=c^2} appears as part of the text and a display 
-formula @$${a^2+b^2=c^2} appears centered on a line of its own.
+
+The @tt{mathbook} language is designed to write books with mathematical content.
+Besides support for mathematical formulas (in LaTeX notation) there is 
+support for theorems, proofs, exercises etc.
+
+A document written in the @tt{mathbook} language can be rendered to the
+output formats pdf and html. The pdf renderer uses the LaTeX document class 
+@tt{amsbook} from the American Mathematical Society. The html renderer uses
+MathJax to render formulas. 
+
+This manual is written as a @tt{#lang mathbook} language, so it serves
+as concrete example. The source is available at
+@centered{@url{https://github.com/soegaard/mathbook/blob/master/test/test.rkt} .}
+
+
+@section{Mathematical Formulas}
+
+There are two types of formulas, namely @emph{@as-index{inline}} and 
+@emph{@as-index{display}} formulas. 
+An inline formula appears as an integrated part of the text.
+A display formula appears centered on a line of its own.
+
+The Scribble constructs are @racket{$} and @racket{$$} respetively.
+
+Einstein's famous equation @${E=mc^2} as an inline formula.
+
+Einstein's famous equation @$${E=mc^2} as a display formula.
+
+The inline formula above was produced by @racket{@${E=mc^2}} or using Scribble
+syntax: @code{@"@"${E=mc^2}}. The actual formula must be written using
+LaTeX syntax. There are several resources that describes LaTeX. 
+Here is one of them @centered{@url{http://en.wikibooks.org/wiki/LaTeX/Mathematics} .}
+
 
 A mathbook rendered as HTML use MathJax to render the formulas.
 
@@ -49,7 +74,7 @@ En ligning af typen @y=ax+b svarer til en ikke-lodret linje.
 @theorem{Betydning af @${b}}
 Tallet @${b} i ligningen @y=ax+b er den @værdi{y}, som hører til @værdien{x} 0.
 @proof{}
-Hvis @${x=0}, så er @${y=a\cdot x +b = y=a\cdot 0 +b = 0 + b = b}.
+Hvis @${x=0}, så er @${y=a\cdot x +b =a\cdot 0 +b = 0 + b = b}.
 
 Grafisk betyder sætningen, at linjen med ligning @y=ax+b skærer @${y}-aksen i punktet@${(0,b)}.
 
@@ -59,7 +84,7 @@ Grafisk betyder sætningen, at linjen med ligning @y=ax+b skærer @${y}-aksen i 
 @subsection{Fra ligning til linje}
 
 
-Vi ser nu på, hvilken betydning tallene @${a} og @${b}
+Vi ser nu på, hvilken betydning tallene @${a} og @${b} har.
 
 
 @subsection{Fra to punkter til linjens hældning}
@@ -113,3 +138,8 @@ Et produkt er nul hvis og kun hvis mindst en faktor er nul.
            x-2 =0  &\ \ \vee\ \  x-1=0 \\
            x=2     &\ \ \vee\ \  x=1 \\
     \end{aligned}}
+
+
+@; -------------------------------
+@index-section{}
+

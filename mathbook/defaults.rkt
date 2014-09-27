@@ -34,16 +34,17 @@
                        ; Add <script>...</script> to the <head>...</head> portion of html.
                        (list 
                         ; --- KaTeX support ---
+                        ; Note: KaTeX support is disabled until the project matures.
                         ; var xs = document.getElementsByClassName("katex"); 
                         ; var n=xs.length; for (var i =0 ; i<n; i++) { katex.render(xs[2*i].innerHTML,xs[2*i])}
-                        (head-extra
+                        #;(head-extra
                          `(script ([src "katex/render-katex-class.js"] [type "text/javascript"])))
-                        (head-extra
+                        #;(head-extra
                          `(link ([rel "stylesheet"]
                                  [type "text/css"]
                                  [href "katex/katex.min.css"])))
                         ; <link rel="stylesheet" type="text/css" href="/path/to/katex.min.css">
-                        (head-extra
+                        #;(head-extra
                          `(script ([src "katex/katex.min.js"]
                                    [type "text/javascript"])))
                         ; <script src="/path/to/katex.min.js" type="text/javascript"></script>
