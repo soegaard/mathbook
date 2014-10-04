@@ -1,7 +1,7 @@
 #lang mathbook
 
 @title{Mathbook}
-@author{Jens Axel Søgaard}
+@author{Jens Axel Søgaard, 2014}
 
 @section{Introduction}
 
@@ -77,9 +77,6 @@ Tallet @${b} i ligningen @y=ax+b er den @værdi{y}, som hører til @værdien{x} 
 Hvis @${x=0}, så er @${y=a\cdot x +b =a\cdot 0 +b = 0 + b = b}.
 
 Grafisk betyder sætningen, at linjen med ligning @y=ax+b skærer @${y}-aksen i punktet@${(0,b)}.
-
-
-
 
 @subsection{Fra ligning til linje}
 
