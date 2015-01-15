@@ -8,6 +8,7 @@
 
 (provide aligned
          author
+         exercise
          proof
          section
          subsection
@@ -18,6 +19,11 @@
          danish-language 
          english-language)
 
+;; The various environments have names. A "language" is a hash
+;; table from english names to names in the other language.
+;; Send translations to jensaxel@soegaard.net or submit a pull
+;; request on Github.
+
 (define english-language #hash())
 (define danish-language
   #hash( ("Theorem" . "Sætning")
@@ -26,30 +32,33 @@
 (define current-language (make-parameter #f)) ; #f = english
 ; (define current-language (make-parameter danish))
 
-(define (lookup s)
+; translate : string -> string
+;   if the string s has a translation in the (current-language)
+;   hash table, use that translation, otherwise return the s.
+(define (translate s)
   (match (current-language)
     [#f s]
     [_  (hash-ref  s (λ() s))]))
-    
+
 #;(define sigplan-extras
-  (let ([abs (lambda (s)
-               (path->collects-relative
-                (collection-file-path s "scribble" "sigplan")))])
-    (list
-     (make-css-addition (abs "sigplan.css"))
-     (make-tex-addition (abs "sigplan.tex")))))
+    (let ([abs (lambda (s)
+                 (path->collects-relative
+                  (collection-file-path s "scribble" "sigplan")))])
+      (list
+       (make-css-addition (abs "sigplan.css"))
+       (make-tex-addition (abs "sigplan.tex")))))
 
 #;(define abstract-style (make-style "abstract" sigplan-extras))
 
 #;(define (abstract . strs)
-  (make-nested-flow
-   abstract-style
-   (decode-flow strs)))
+    (make-nested-flow
+     abstract-style
+     (decode-flow strs)))
 
 ;; ----------------------------------------
 ;; Theorems:
 ; syntax : (define-new-theorem name latex-name text)
-;  defines a new theorem environment (using LaTeX slang),
+;  defines a new theorem environment (using LaTeX nomenclature),
 ;  Warning: remember to add \newtheorem{latex-name}{text} to mathbook-style.tex
 (define-syntax (define-new-theorem stx)
   (syntax-parse stx
@@ -57,8 +66,15 @@
      #'(begin
          (provide name)
          (define (name . strs)
-           (make-nested-flow (make-style latex-name '())
-                             (decode-flow strs))))]))
+           (list
+            #;(part-start 1             ; depth
+                       #f             ; tag-prefix
+                       '()            ; tags
+                       (style #f '()) ; style
+                       "fra new-theorem"       ; title
+                       )
+            (make-nested-flow (make-style latex-name '())
+                             (decode-flow strs)))))]))
 
 (define-syntax (define-new-theorems stx)
   (syntax-parse stx
@@ -76,28 +92,29 @@
 ; remark        Remark, Note, Notation, Claim, Summary, Acknowledgment, Case, Conclusion
 
 ;(define-new-theorem theorem "theorem" "Theorem")
-(define-new-theorems theorem lemma corollary proposition conjecture criterion algorithm)
-(define-new-theorems definition condition problem example)
+(define-new-theorems theorem lemma corollary proposition conjecture criterion algorithm 
+                     exercise oevelse)
+(define-new-theorems definition condition problem example eksempel)
 (define-new-theorems remark note notation claim summart acknowledgment #;case conclusion)
 
 
 
 #;(define theorem-style (make-style "theorem" '()))
 #;(define (theorem . strs)
-  (make-nested-flow theorem-style (decode-flow strs)))
+    (make-nested-flow theorem-style (decode-flow strs)))
 
 #;(define (theorem s . strs)
-  (let ([ss strs])
-    (paragraph plain
-               (cons (make-element 'theo 
-               (decode-content ss))))))
+    (let ([ss strs])
+      (paragraph plain
+                 (cons (make-element 'theo 
+                                     (decode-content ss))))))
 
 #;(define (theorem s . strs)
-  (let ([ss strs])
-    (paragraph plain
-               (cons (make-element 'bold (~a (lookup "Theorem") " "))
-                     (cons (make-element 'italic s)
-                           (decode-content ss))))))
+    (let ([ss strs])
+      (paragraph plain
+                 (cons (make-element 'bold (~a (lookup "Theorem") " "))
+                       (cons (make-element 'italic s)
+                             (decode-content ss))))))
 
 ;; ----------------------------------------
 ;; Math Environments
@@ -108,6 +125,6 @@
 
 (define (proof . s)
   (make-paragraph plain
-                  (cons (make-element 'bold (~a (lookup "Proof") " "))
+                  (cons (make-element 'bold (~a (translate "Proof") " "))
                         (decode-content s))))
 

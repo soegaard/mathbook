@@ -654,12 +654,23 @@ blockquote > blockquote.SVInsetFlow {
 /* Matbook styles */
 
 /* Insert the word "Theorem" in bold before ... */
-.theorem:before { content: "Theorem ";
-                  font-weight: bold;
-                  display: inline;
-}
+.theorem:before { content: "Theorem "; font-weight: bold; display: inline;}
+/* .theorem { display: inline; font-weight: bold;} */
+.exercise:before   { content: "Exercise";   font-weight: bold; display: inline;}
+.oevelse:before   { content: "Øvelse";     font-weight: bold; display: inline;}
+.definition:before { content: "Definition"; font-weight: bold; display: inline;}
+.example:before { content: "Example"; font-weight: bold; display: inline;}
+.eksempel:before { content: "Eksempel"; font-weight: bold; display: inline;}
 
-.theorem { display: inline; font-weight: bold;}
+blockquote.theorem    {margin-left: 0; }
+blockquote.exercise   {margin-left: 0; }
+blockquote.oevelse    {margin-left: 0; }
+blockquote.theorem    {margin-left: 0; }
+blockquote.definition {margin-left: 0; }
+blockquote.example    {margin-left: 0; }
+blockquote.eksempel   {margin-left: 0; }
+
+
 
 /* phone + tablet styles */
 

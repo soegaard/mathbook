@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Re-definitions for the PLT Scheme manual style
-
+\typeout{XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
 \renewcommand{\sectionNewpage}{\newpage}
 
 \renewcommand{\preDoc}{\sloppy}
@@ -30,12 +30,15 @@
 \newtheorem{lemma}[theorem]{Lemma}              % use the counter in [theorem] i.e. use shared counter
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{exercise}[theorem]{Exercise}        % middle argument is the counter
+\newtheorem{oevelse}[theorem]{Øvelse}            % middle argument is the counter
 
 % definition style, typically roman text
 \theoremstyle{definition}                       % 
 \newtheorem{definition}{Definition}[section]
 \newtheorem{conjecture}{Conjecture}[section]
 \newtheorem{example}{Example}[section]
+\newtheorem{eksempel}{Eksempel}[section]
 
 % remark style, typically roman text
 \theoremstyle{remark}
