@@ -24,13 +24,13 @@ gange ind i parenteserne.
 
   a (x-r) (x-s) = a (x^2 - sx -rx + rs) = a(x^2 - (s+r)x + rs) = ax^2 - a(s+r)x + ars
 
-  Konklusion:
-     Omskrives et andengradspolynomium  a(x-r)(x-s) til  led-form ax^2 + bx + c,
-     så er:
+Konklusion:
+    Omskrives et andengradspolynomium  a(x-r)(x-s) til  led-form ax^2 + bx + c,
+    så er:
 
          a (x-r) (x-s) = ax^2 - a(r+s)x + ars
 
-     dvs  b = -a(r+s) og c = ars.
+    dvs  b = -a(r+s) og c = ars.
 
 Eksempel (Omskrivning fra faktor-form til led-form)
 ---------------------------------------------------
@@ -47,13 +47,13 @@ Ledformen er derfor:
 
 Eksempel (CAS - Omskrivning fra faktor-form til led-form)
 ---------------------------------------------------------
-Anvendes CAS kan omskrivningen foretages ved at anvende funktionen expand().
+Anvendes CAS kan omskrivningen foretages ved at bruge funktionen expand().
 
    Input:   expand( 3(x-2)(x+1) ) 
    Output:  3x^2 - 3x - 6
 
 Kommandoen expand ganger parenteserne ud. Det pudsige navn skyldes, at
-man på engelsk omtaler "gange ind i parenterser" som "expansion".
+man på engelsk omtaler "gange ind i parenteser" som "expansion".
 Årsagen er atudtryk ofte bliver større af ganget parenteserne ud. 
 
 
@@ -71,12 +71,13 @@ andengradspolynomium ax^2 + bx + c på ledform til a(x-r)(x-s)
 på faktorform.
 
 Metode:
-  1.  Udregn tallet d=b^2-4ac
-  2a. Hvis d<0 (negativ),
+  1.  Find a, b og c.
+  2.  Udregn tallet d=b^2-4ac
+  3a. Hvis d<0 (negativ),
       så kan andengradspolynomiet ikke omskrives.
-  2b. Hvis d=0 (nul),
+  3b. Hvis d=0 (nul),
       så er faktorformen a(x-r)^2 hvor r = -b / 2a
-  2c. Hvis d>0 (positive),
+  3c. Hvis d>0 (positive),
       så er faktorformen a(x-r)(x-s) 
       hvor r = (-b - sqrt(d))/2a 
       og   s = (-b + sqrt(d))/2a 
@@ -86,7 +87,224 @@ Vi ser altså, at der er 3 muligheder.
 Eksempel (faktorisering, d>0)
 -----------------------------
 
-Polynomiet 
+Polynomiet 2x^2 + 4x - 6 skal faktoriseres.
+
+1. a = 2, b = 4, c = -6
+2. d = b^2-4ac = 4^2 - 4*2*(-6) = 16+48 = 64
+Da d=64>0 forsætter vi med 3c.
+3c. r = (-b - sqrt(d))/2a = (-4-sqrt(64))/(2*2) = (-4-8)/4 = -3
+    s = (-b + sqrt(d))/2a = (-4+sqrt(64))/(2*2) = (-4+8)/4 =  1
+    Faktor-formen er derfor:
+         a(x-r)(x-s) = 2(x-(-3))(x-1) = 2(x+3)(x-1)
+Konklusion: 2x^2 + 4x - 6 = 2(x+3)(x-1)
+
+Eksempel (CAS - faktorisering)
+------------------------------
+I et CAS bruges kommandoen factor() til at faktorisere et udtryk.
+
+   Input:  factor(2x^2 + 4x - 6)
+   Output: 2(x-1)(x+3)
+
+Eksempel (faktorisering, d=0)
+-----------------------------
+Polynomiet 2x^2 + 4x + 2 skal faktoriseres.
+
+1. a = 2, b = 4, c = 2
+2. d = b^2 - 4ac = 4^2 - 4*2*2 = 0
+Da d=0 forsættes med 3b.
+3b. r = -b / 2a = -4 /(2*2) = -1
+    Faktorformen er:
+       a(x-r)^2 = 2(x-(-1))^2 = 2(x+1)^2
+Konklusion: 2x^2 + 4x + 2  = 2(x+1)^2
+
+Eksempel (faktorisering, d<0)
+-----------------------------
+Polynomiet  2x^2 + 4x + 3 skal faktoriseres.
+1. a = 2, b = 4, c = 3
+2. d = b^2 - 4ac = 4^2 - 4*2*3 = 16 - 24 = -8
+Da d=-8 er negativ, kan polynomiet ikke faktoriseres.
+
+
+
+
+Løsning af andengradsligninger
+==============================
+
+Andengradsligninger
+-------------------
+
+Ligninger, der kan omskrives til formen ax^2 + bx + c = 0, 
+hvor a, b og c er tal, og a ikke er nul, kaldes andengradsligninger.
+
+
+Eksempel
+--------
+Hvilke af følgende ligninger er andengradsligninger?
+   i)  TODO
+   ii) TODO
+
+
+Standardmetoden
+---------------
+
+1. Omskriv til standardformen ax^2 + bx + c = 0
+2. Aflæs tallene a, b og c.
+3. Udregn hjælpetallet d=b^2-4ac
+4. Find fortegnet for diskriminanten d.
+   Hvis d er positiv, har ligningen to løsninger.
+   Hvis d er nul,     har ligningen en løsninger.
+   Hvis d er negativ, har ligningen nul løsninger.
+5a. Hvis diskriminanten d er positiv:
+    De to løsninger er:
+       x1 = (-b - sqrt(d))/(2a)
+       x2 = (-b + sqrt(d))/(2a)
+5b. Hvis diskriminanten d er nul:
+    Løsningen er:
+       x = -b/2a
+5c. Hvis diskriminanten er negativ:
+    Der er ingen løsninger.
+
+
+Gættemetoden
+------------
+For simple andengradsligninger kan man nogle gange gætte ligningens løsninger.
+
+Eksempel
+--------
+Ligningen   x^2 - 3x + 2 = 0.
+Eleven G. Gearløs gætter at x=1 og x=2 er løsninger.
+For at kontrollere, at han har gættet rigtigt, indsætter han gættene en ad gangen i ligningen:
+    1^2 - 3*1 + 2 = 1 - 3 + 2 = 0
+ 	2^2 - 3*2 + 2 = 4 - 6 + 2 = 0
+Georg havde altså gættet rigtigt. 
+
+Men hvordan vidste han, at han skulle gætte på x=1 og x=2 i første omgang?
+
+Georg vidste, at hvis en andengradsligning har to løsninger x1 og x2,
+produktet x1*x2 være det samme som c/a. I opgaven er c/a = 2/1 = 2,
+så Georg ved, at han skal finde to tal som ganget sammen giver 2.
+
+Der er to muligheder:
+    x1 = -1  og   x2 = -2        (-1)*(-2) = 2
+    x1 =  1  og   x2 =  2          1 *  2  = 2
+
+Nu kunne man afprøve første mulighed ved at sætte ind i ligningen, 
+men Georg kan nemt udelukke den første mulighed. Han kender nemlig
+en ting mere om løsningerne. Summen x1+x2 af løsningerne skal give -b/a.
+I denne opgave er x1+x2 = -b/a = -(-3)/1 = 3.
+For de to muligheder har vi:
+    x1 = -1  og   x2 = -2        (-1)+(-2) = -2
+    x1 =  1  og   x2 =  2          1 +  2  =  3
+
+Metoden
+-------
+For at gætte heltallige løsninger i en andengradsligningen kan 
+følgende metode bruges:
+
+   1. Udregn hvad produktet x1*x2 skal give:  c/a
+   2. Opskriv alle muligheder for x1 og x2, så de ganget sammen giver c/a.
+   3. Udregn hvad summen x1+x2 skal give:     -b/a
+   4. Find den mulighed, hvor x1+x2 giver -b/a
+
+Eksempel
+--------
+Andengradsligningen x^2 - 17x + 30 = 0 skal løses.
+Først aflæses  a=1, b=-17, c=30.
+Da alle tallene er hele tal, er der en chance for at matematiklæreren 
+har lavet en opgave med nemme løsninger. 
+
+1. Udregning af produktet: c/a = 30/1 = 30
+2. Muligheder:
+          1*30    = 30
+          2*15    = 30
+          3*10    = 30
+          5*6     = 30
+       (-1)*(-30) = 30
+       (-2)*(-15) = 30
+       (-3)*(-10) = 30
+       (-5)*(-6)  = 30
+3. Udregning af summen: -b/a = -(-17)/1 = 17
+4. Summen udregnes for hver mulighed:
+          1+30    =  31
+          2+15    =  17
+          3+10    =  13
+          5+6     =  11
+       (-1)+(-30) = -31
+       (-2)+(-15) = -17
+       (-3)+(-10) = -13
+       (-5)+(-6)  = -11
+5. Konklusion: Den rigtige muligheder x1=2 og x=15.
+   Når den rigtige mulighed er fundet, behøver man ikke udregne summen 
+   for de resterende muligheder.
+
+Eksempel
+--------
+Andengradsligningen 2x^2 - 3x + 1 = 0 skal løses.
+Tallene a=2, b=-3 og c=1 aflæses.
+
+1. Udregning af produktet: c/a = 1/2 = 1/2
+
+Produktet af de to løsninger skal give 1/2. 
+Derfor kan løsningerne ikke begge være hele tal - og  derfor kan 
+gættemetoden ikke bruges på denne ligning. I stedet for skal 
+ligningen løses med standardmetoden (vha diskriminanten).
+
+
+Eksempel
+---------
+
+Andengradsligningen 2x^2 - 5x + 2 = 0 skal løses.
+Tallene a=2, b=-5 og c=2 aflæses.
+
+1. Udregning af produktet: c/a = 2/2 = 1
+2. Muligheder:
+       1*1       = 1
+       (-1)*(-1) = 1
+3. Udregning af summen: -b/a = -(-5)/2 = 5/2
+
+Da summen ikke er helt helt tal, kan gættemetoden ikke bruges til denne andengradsligning.
+
+
+Baggrund for metoden
+--------------------
+
+Lad ax^2 + bx + c = 0 være en andengradsligning med to løsninger x1 og x2.
+Da andengradsligningen har to løsninger, er diskriminanten d positiv og
+     x1 = ( -b - sqrt(d) )/2a
+     x2 = ( -b + sqrt(d) )/2a
+
+Produktet af de to løsninger er:
+     x1 * x2 = (   -b - sqrt(d) )/2a * ( -b + sqrt(d) )/2a               ; indsæt
+             = ( ( -b - sqrt(d) )    * ( -b + sqrt(d) ) ) / (2a * 2a)    ; produkt af brøker
+             = (  (-b)^2 - sqrt(d)^2                    ) / 4a^2         ; 3. kvadratsætning  (x-y)(x+y) = x^2-y^2
+             = (    b^2 - d                             ) / 4a^2         ; sqrt(x)^2 = x
+             = (    b^2 - (b^2 - 4ac)                   ) / 4a^2         ; indsæt d=b^2 -4ac
+             = (    b^2 -  b^2 + 4ac                    ) / 4a^2         ; ophæv minusparentes
+             = (                 4ac                    ) / 4a*a         ; reducer
+             = c/a                                                       ; forkort brøk med 4a
+
+Summen af de to løsninger er:
+     x1 + x2 = (   -b - sqrt(d) )/2a + ( -b + sqrt(d) )/2a               ; indsæt
+             = (   -b - sqrt(d)      +   -b + sqrt(d) )/2a               ; sum af brøker
+             = (   -2b                                )/2a               ; -b-b = -2b  , -x+x=0
+             = -b/a                                                      ; forkort brøk med 2
+
+Opgave (teoretisk)
+------------------
+Kan gættemetoden bruges på en andengradsligning med en diskriminant på nul?
+(Tip: Lav en andengradsligning med diskriminant 0 og forsøg at løse den vha gættemetoden)
+
+
+
+
+
+
+
+Anvendelser: 
+  - Ligningsløsning vha nul-regel
+  - http://math.stackexchange.com/questions/83837/what-is-a-real-world-application-of-polynomial-factoring
+
+
 
 
 
