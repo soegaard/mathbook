@@ -125,8 +125,6 @@ Polynomiet  2x^2 + 4x + 3 skal faktoriseres.
 Da d=-8 er negativ, kan polynomiet ikke faktoriseres.
 
 
-
-
 Løsning af andengradsligninger
 ==============================
 

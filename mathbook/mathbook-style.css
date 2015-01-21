@@ -651,7 +651,7 @@ blockquote > blockquote.SVInsetFlow {
     white-space: nowrap;
 }
 
-/* Matbook styles */
+/* Mathbook styles */
 
 /* Insert the word "Theorem" in bold before ... */
 .theorem:before { content: "Theorem "; font-weight: bold; display: inline;}

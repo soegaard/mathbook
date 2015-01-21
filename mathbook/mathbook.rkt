@@ -14,6 +14,7 @@
          subsection
          theorem
          title
+         translate
          tt
          current-language
          danish-language 
@@ -27,7 +28,8 @@
 (define english-language #hash())
 (define danish-language
   #hash( ("Theorem" . "Sætning")
-         ("Proof"   . "Bevis")))
+         ("Proof"   . "Bevis")
+         ("Example" . "Eksempel")))
 
 (define current-language (make-parameter #f)) ; #f = english
 ; (define current-language (make-parameter danish))
@@ -38,7 +40,7 @@
 (define (translate s)
   (match (current-language)
     [#f s]
-    [_  (hash-ref  s (λ() s))]))
+    [lang (hash-ref lang s (λ() s))]))
 
 #;(define sigplan-extras
     (let ([abs (lambda (s)
@@ -68,13 +70,15 @@
          (define (name . strs)
            (list
             #;(part-start 1             ; depth
-                       #f             ; tag-prefix
+                          #f             ; tag-prefix
                        '()            ; tags
                        (style #f '()) ; style
                        "fra new-theorem"       ; title
                        )
-            (make-nested-flow (make-style latex-name '())
-                             (decode-flow strs)))))]))
+            (make-nested-flow 
+             ; latex-name ends up as class="latex-name" in the html
+             (make-style latex-name '())
+             (decode-flow strs)))))]))
 
 (define-syntax (define-new-theorems stx)
   (syntax-parse stx
