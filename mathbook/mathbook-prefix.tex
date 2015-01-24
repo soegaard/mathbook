@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{amsbook}
+\documentclass[a4paper,12pt,oneside]{amsbook}
 % Required by amsbook: title, author, address, subjclass[2000]{}, maketitle
 
 % -------------------------
@@ -9,9 +9,12 @@
 %\partopsep=0pt
 % Adjust margins to match HTML width for
 % fixed-width font
-% \advance \oddsidemargin by -0.15in
-% \advance \evensidemargin by -0.15in
-% \advance \textwidth by 0.3in
+
+% extend the margins a bit:
+\advance \oddsidemargin by -0.15in
+\advance \evensidemargin by -0.15in
+\advance \textwidth by 0.3in
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 % -------------------------
@@ -26,5 +29,5 @@
 
 %\usepackage{microtype}
 \usepackage{cancel}  % has \cancel{math}, \bcancel{math} and others
-
+\usepackage{layout}
 

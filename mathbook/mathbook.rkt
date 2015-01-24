@@ -8,6 +8,7 @@
 
 (provide aligned
          author
+         def-index 
          exercise
          proof
          section
@@ -123,12 +124,33 @@
 ;; ----------------------------------------
 ;; Math Environments
 
-(define (aligned . strs) ; note only allowed in math mode
-  (make-nested-flow (make-style "aligned" '()) 
-                    (decode-flow strs)))
+(define (aligned . s)
+  (make-element (make-style "relax" '(exact-chars))
+                `("\\[\\begin{aligned}" 
+                  ,@s
+                  "\\end{aligned}\\]")))
+
 
 (define (proof . s)
   (make-paragraph plain
                   (cons (make-element 'bold (~a (translate "Proof") " "))
                         (decode-content s))))
+
+
+
+;;;
+;;; INDEX
+;;;
+
+; definition-index : ...
+;   emphasize the word where it appears,
+;   also put the word in the index
+(define (def-index . s)
+  (emph (apply as-index s)))
+
+
+
+
+
+
 
