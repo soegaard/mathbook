@@ -10,6 +10,8 @@
 @subsection{Opgave 1}
 
 a) Udtrykket @${3b - 4a - (2b + a)} skal reduceres.
+
+
    Minusparentesen hæves ved at ændre fortegn i hvert led:
 @aligned{3b - 4a - (2b + a) &= 3b - 4a - 2b - a \\
                             &= -5a + b}
@@ -82,6 +84,8 @@ a) Det ubestemte integral @${\int(2x+6x^2)dx} skal bestemmes.
 
 Figuren viser en graf for @${f}. Grafen går gennem punktet @${(6,7)}.
 
+       @image["figur-opg5.png"]
+
 a) Hvilken af følgende tre muligheder kan være den rigtige?
    @nested[#:style 'inset
    (list
@@ -115,7 +119,8 @@ a) Bestem tallene @${a} og @${b}
     Der er 6 datapunkter i tabellen. For at udregne tallene @${a} og @${b} benyttes lineær regression.
     Tallene indtastes i regneark i NSpire, og statistikværktøjet lineær regression anvendes.
     Resultatet ses her:
-      FIGUR FIGUR FIGUR
+
+       @image["figur-opg6.png"]
 
     Konklusion: @${a = 256.271}  og  @${b = 1250.06}
 
@@ -158,6 +163,7 @@ a) Bestem integralet @${\int_0^3f(x)dx}, og giv en fortolkning af resultatet.
           @$${f(x) := -x^3 + 4x^2 +1}
 
    Dernæst indtastes:
+
    @verbatim{
        Input:  @${\int_0^3}(f(x))dx
        Output: 75/4}
@@ -165,23 +171,25 @@ a) Bestem integralet @${\int_0^3f(x)dx}, og giv en fortolkning af resultatet.
    For at fortolke resultatet tegnes grafen for i intervallet [0,3].
 
    Det ses at grafen for f ligger over @${x}-aksen i hele intervallet.
-   Derfor er 75/4 arealet for området mellem grafen for @${f} og @${x}-aksen i intervallet [0,3].
+   Derfor er 75/4=18.75 arealet for området mellem grafen for @${f} og @${x}-aksen i intervallet [0,3].
 
  @subsection{Opgave 8}
+     
+    @image["figur-opg8.png"]
 
  a) Bestem @${|AC|} og @${|AF|}
 
-    På figur 2 ses, at @${AC} er katete i den retvinklede trekant @${ACB} hvor @${C=90\deg}.
-    På figuren ses, at @${|AB| = 79}m og at vinkel @${A = 50\deg}.
+    På figur 2 ses, at @${AC} er katete i den retvinklede trekant @${ACB} hvor @${C=90^\circ}.
+    På figuren ses, at @${|AB| = 79}m og at vinkel @${A = 50^\circ}.
 
     Med udgangspunkt i vinkel @${A} ved vi at:
 
-        @$${A=50\deg , \text{ hos } = |AC|  , \text{ hyp } = 79}
+        @$${A=50^\circ , \text{ hos } = |AC|  , \text{ hyp } = 79}
 
     I en retvinklet trekant gælder:
 
     @aligned{\text{hos} &= \text{hyp} \cdot \cos( \text{vinkel} ) \\
-                   |AC| &= 79  \cdot \cos ( 50\deg ) \\
+                   |AC| &= 79  \cdot \cos ( 50^\circ ) \\
                    |AC| & ≈ 50.7802 }
 
     Siden @${|AF|} kan deles op ved @${C}. Derfor er:
@@ -195,7 +203,7 @@ a) Bestem integralet @${\int_0^3f(x)dx}, og giv en fortolkning af resultatet.
     Siden @${|CF| = |BE|}, så vi udregner @${|BE|} i stedet for.
     Trekant @${BED} er retvinklet. Med udgangspunkt i vinkel @${B} kan vi bruge:
     @aligned{ \text{hos}  &= \text{hyp} \cdot \cos( \text{vinkel} ) \\
-                     |BE| &= 17  \cdot \cos( 15\deg ) \\ 
+                     |BE| &= 17  \cdot \cos( 15^\circ ) \\ 
                      |BE| &≈ 16.4207}
 
     Det vil sige:
@@ -211,14 +219,14 @@ b) Bestem @${|AD|}
    I trekant @${ABD} kendes @${|AB| = 79} og @${BD = 17}.
    For at udregne @${AD} regnes vinkel @${B} ud først.
    @aligned{\angle B &= \angle ABD &= \angle ABC + \angle CBD + \angle EBD  \\
-               &=  50\deg +  90\deg +  15\deg \\
-               &=  155\deg}
+               &=  50^\circ +  90^\circ +  15^\circ \\
+               &=  155^\circ}
 
    Nu kendes to sider og en vinkel i trekant @${ABD}.
    Derfor bruges cosinusrelationen til at udregne den sidste side:
    @aligned{
      |AD|^2 &= |AB|^2 + |BD|^2 - 2 |AB| |BD| \cos(B) \\
-     |AD|^2 &= 79^2   + 17^2   - 2 \cdot  79 \cdot  17 \cdot \cos(155\deg) \\
+     |AD|^2 &= 79^2   + 17^2   - 2 \cdot  79 \cdot  17 \cdot \cos(155^\circ) \\
      |AD|^2 &= 8964.34 \\
      |AD|   &= \sqrt{8964.34} \\
      |AD|   &= 94.6802 }
