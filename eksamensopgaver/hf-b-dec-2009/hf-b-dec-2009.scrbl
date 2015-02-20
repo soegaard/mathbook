@@ -219,19 +219,19 @@ b) Bestem @${|AD|}
    I trekant @${ABD} kendes @${|AB| = 79} og @${BD = 17}.
    For at udregne @${AD} regnes vinkel @${B} ud først.
    @aligned{\angle B &= \angle ABD &= \angle ABC + \angle CBD + \angle EBD  \\
-               &=  50^\circ +  90^\circ +  15^\circ \\
-               &=  155^\circ}
+               &=  40^\circ +  90^\circ +  15^\circ \\
+               &=  145^\circ}
 
    Nu kendes to sider og en vinkel i trekant @${ABD}.
    Derfor bruges cosinusrelationen til at udregne den sidste side:
    @aligned{
      |AD|^2 &= |AB|^2 + |BD|^2 - 2 |AB| |BD| \cos(B) \\
-     |AD|^2 &= 79^2   + 17^2   - 2 \cdot  79 \cdot  17 \cdot \cos(155^\circ) \\
-     |AD|^2 &= 8964.34 \\
-     |AD|   &= \sqrt{8964.34} \\
-     |AD|   &= 94.6802 }
+     |AD|^2 &= 79^2   + 17^2   - 2 \cdot  79 \cdot  17 \cdot \cos(145^\circ) \\
+     |AD|^2 &= 8730.24 \\
+     |AD|   &= \sqrt{8730.24} \\
+     |AD|   &= 93.4358 }
 
-   Konklusion: Siden @${AD} er 94.7 meter.
+   Konklusion: Siden @${AD} er 93.4 meter.
 
 
 @subsection{Opgave 9}
